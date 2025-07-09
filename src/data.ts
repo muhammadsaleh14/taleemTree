@@ -49,7 +49,7 @@ export const initialOpportunities: LearningOpportunity[] = [
       "Start your journey to learn Urdu with essential vocabulary and phrases.",
     category: "Language",
     linkType: "internal",
-    link: "mock-form-2",  
+    link: "mock-form-2",
   },
   {
     id: "1",
@@ -59,6 +59,16 @@ export const initialOpportunities: LearningOpportunity[] = [
       "Start your journey to learn English with essential vocabulary and phrases.",
     category: "Language",
     linkType: "internal",
-    link: "mock-form-2",  
+    link: "mock-form-2",
+  },
+  {
+    id: "2",
+    title: "other title",
+    image: "https://placehold.co/600x400/F08080/FFFFFF?text=Urdu+Language",
+    description:
+      "For other ",
+    category: "Other",
+    linkType: "internal",
+    link: "mock-form-2",
   },
 ];
