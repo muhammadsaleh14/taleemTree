@@ -49,6 +49,16 @@ export const initialOpportunities: LearningOpportunity[] = [
       "Start your journey to learn Urdu with essential vocabulary and phrases.",
     category: "Language",
     linkType: "internal",
-    link: "mock-form-2",
+    link: "mock-form-2",  
+  },
+  {
+    id: "1",
+    title: "Learn Basic English Language",
+    image: "https://placehold.co/600x400/F08080/FFFFFF?text=Urdu+Language",
+    description:
+      "Start your journey to learn English with essential vocabulary and phrases.",
+    category: "Language",
+    linkType: "internal",
+    link: "mock-form-2",  
   },
 ];
