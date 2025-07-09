@@ -7,35 +7,19 @@ import LearningCard from "./components/LearningCard";
 import EnrollmentModal from "./components/EnrollmentModal";
 import T from "./components/T";
 import { initialOpportunities } from "./data";
-import type { LearningOpportunity, Category } from "./types";
 import { useLanguage } from "./hooks/useLanguage";
 import { useDarkMode } from "./hooks/useDarkMode";
 
-// Define the categories for filtering
-const CATEGORIES: Category[] = [
-  "All",
-  "STEM",
-  "Soft Skills",
-  "Arts & Humanities",
-  "Business",
-  "Language",
-];
-
-// Define Urdu translations for the categories to be used with the T component
-const categoryTranslations: Record<Category, string> = {
-  All: "تمام",
-  STEM: "سائنس، ٹیکنالوجی، انجینئرنگ، ریاضی",
-  "Soft Skills": "سافٹ سکلز",
-  "Arts & Humanities": "فنون اور انسانیت",
-  Business: "کاروبار",
-  Language: "زبان",
-  "Health & Wellness": "adadad"
-};
+// Import everything category-related from your new single source of truth
+import {
+  CATEGORIES,
+  categoryTranslations,
+  type LearningOpportunity,
+  type Category,
+} from "./types";
 
 function App() {
   // --- Hooks for Global State ---
-  // The useDarkMode hook is called ONCE here. It manages the .dark class
-  // on the <html> tag and provides the toggle function.
   const [, toggleDarkMode] = useDarkMode();
   const [lang, toggleLanguage] = useLanguage();
 
@@ -59,7 +43,6 @@ function App() {
   };
 
   // --- Memoized Derived State ---
-  // useMemo prevents re-filtering the list on every render unless the dependencies change.
   const filteredOpportunities = useMemo(() => {
     if (activeFilter === "All") {
       return opportunities;
@@ -69,13 +52,10 @@ function App() {
 
   return (
     <div className={`min-h-screen flex flex-col font-inter`}>
-      {/* Pass the toggleDarkMode function down to the Header as a prop */}
       <Header toggleDarkMode={toggleDarkMode} toggleLanguage={toggleLanguage} />
 
       <main className="flex-grow container mx-auto p-6">
         <section id="public-content" className="mb-10">
-          {/* This heading now uses the semantic 'text-text-main' class, which automatically
-              adapts to light/dark mode based on the CSS variables in index.css. */}
           <h2 className="text-4xl font-extrabold text-center text-text-main mb-8">
             <T
               en="Explore Free Learning Opportunities"
@@ -84,7 +64,7 @@ function App() {
             />
           </h2>
 
-          {/* Category Filters */}
+          {/* This mapping now uses the imported CATEGORIES array */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {CATEGORIES.map((category) => (
               <button
@@ -97,6 +77,7 @@ function App() {
                       : "bg-brand-secondary text-brand-text hover:opacity-80"
                   }`}
               >
+                {/* The T component uses the imported categoryTranslations object */}
                 <T
                   en={category}
                   ur={categoryTranslations[category]}
@@ -133,10 +114,8 @@ function App() {
         </section>
       </main>
 
-      {/* Pass the current language to the Footer */}
       <Footer lang={lang} />
 
-      {/* The enrollment modal is controlled by this component's state */}
       <EnrollmentModal
         isOpen={isEnrollModalOpen}
         onClose={() => setIsEnrollModalOpen(false)}
