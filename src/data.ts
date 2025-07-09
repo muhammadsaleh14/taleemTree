@@ -65,8 +65,16 @@ export const initialOpportunities: LearningOpportunity[] = [
     id: "2",
     title: "other title",
     image: "https://placehold.co/600x400/F08080/FFFFFF?text=Urdu+Language",
-    description:
-      "For other ",
+    description: "For other ",
+    category: "Other",
+    linkType: "internal",
+    link: "mock-form-2",
+  },
+  {
+    id: "3",
+    title: "other title",
+    image: "https://placehold.co/600x400/F08080/FFFFFF?text=Urdu+Language",
+    description: "For other ",
     category: "Other",
     linkType: "internal",
     link: "mock-form-2",

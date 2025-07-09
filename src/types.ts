@@ -23,6 +23,7 @@ export type Category =
   | "Business"
   | "Language"
   | "Health & Wellness"
+  | 'verbal' // Added "verbal" for specific language-related content
   | "Other"; // Added "Other" for flexibility in future categories
 
 // 2. THE ORDERED LIST
@@ -36,6 +37,7 @@ export const CATEGORIES: Category[] = [
   "Business",
   "Language",
   "Health & Wellness",
+  "verbal", // Added "verbal" for specific language-related content
   "Other"
 ];
 
@@ -50,5 +52,6 @@ export const categoryTranslations: Record<Category, string> = {
   Business: "کاروبار",
   Language: "زبان",
   "Health & Wellness": "صحت اور تندرستی", // Provided a better translation
+  verbal: "زبانی", // Added translation for "verbal"
   Other: "دیگر" // Added translation for "Other"
 };
