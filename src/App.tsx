@@ -29,6 +29,7 @@ const categoryTranslations: Record<Category, string> = {
   "Arts & Humanities": "فنون اور انسانیت",
   Business: "کاروبار",
   Language: "زبان",
+  "Health & Wellness": "adadad"
 };
 
 function App() {
