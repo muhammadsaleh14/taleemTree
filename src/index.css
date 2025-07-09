@@ -1,0 +1,65 @@
+@import "tailwindcss";
+/*
+  CORRECTED src/index.css for Tailwind v4
+*/
+
+@theme {
+  /*
+    Define your theme tokens directly.
+    A JS path like `colors.text.main` becomes `--color-text-main`.
+    This will generate utilities like `bg-text-main` and `text-text-main`.
+  */
+
+  /* Light Mode (Default) Values */
+  --color-background: theme(colors.gray.50);
+  --color-text-main: theme(colors.gray.800);
+  --color-text-subtle: theme(colors.gray.600);
+  --color-card: theme(colors.white);
+  --color-card-border: theme(colors.gray.200);
+  --color-header: theme(colors.white);
+  --color-brand-primary: theme(colors.blue.600);
+  --color-brand-secondary: theme(colors.blue.100);
+  --color-brand-text: theme(colors.blue.800);
+
+  /* Define custom fonts */
+  --font-family-inter: "Inter", sans-serif;
+  --font-family-noto-arabic: "Noto Sans Arabic", sans-serif;
+}
+
+/*
+  Override variables for dark mode using the @variant directive.
+*/
+/* @variant dark {
+  .root {
+    --color-background: theme(colors.gray.900);
+    --color-text-main: theme(colors.gray.200);
+    --color-text-subtle: theme(colors.gray.400);
+    --color-card: theme(colors.gray.800);
+    --color-card-border: theme(colors.gray.700);
+    --color-header: theme(colors.gray.800);
+    --color-brand-primary: theme(colors.blue.500);
+    --color-brand-secondary: theme(colors.blue.900);
+    --color-brand-text: theme(colors.blue.200);
+  }
+} */
+
+.dark {
+  --color-background: theme(colors.gray.900);
+  --color-text-main: theme(colors.gray.200);
+  --color-text-subtle: theme(colors.gray.400);
+  --color-card: theme(colors.gray.800);
+  --color-card-border: theme(colors.gray.700);
+  --color-header: theme(colors.gray.800);
+  --color-brand-primary: theme(colors.blue.500);
+  --color-brand-secondary: theme(colors.blue.900);
+  --color-brand-text: theme(colors.blue.200);
+}
+
+/*
+  Global base styles using the CORRECT utility classes.
+*/
+body {
+  /* FIX IS HERE: Changed 'text-main' to 'text-text-main' */
+  @apply bg-background text-text-main;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
