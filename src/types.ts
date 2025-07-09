@@ -14,4 +14,5 @@ export type Category =
   | "Soft Skills"
   | "Arts & Humanities"
   | "Business"
-  | "Language";
+  | "Language"
+  | "Health & Wellness";
